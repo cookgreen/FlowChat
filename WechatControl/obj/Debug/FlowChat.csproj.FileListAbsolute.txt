@@ -1,0 +1,28 @@
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\TestProject\bin\Debug\images\duihao.png
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\TestProject\bin\Debug\FlowChat.dll.config
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\TestProject\bin\Debug\FlowChat.dll
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\TestProject\bin\Debug\FlowChat.pdb
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\TestProject\obj\Debug\TestProject.Properties.Resources.resources
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\TestProject\obj\Debug\FlowChat.csproj.GenerateResource.Cache
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\TestProject\obj\Debug\FlowChat.dll
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\TestProject\obj\Debug\FlowChat.pdb
+C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\bin\Debug\images\duihao.png
+C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\bin\Debug\FlowChat.dll.config
+C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\bin\Debug\FlowChat.dll
+C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\bin\Debug\FlowChat.pdb
+C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\obj\Debug\FlowChat.csprojResolveAssemblyReference.cache
+C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\obj\Debug\TestProject.Properties.Resources.resources
+C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\obj\Debug\FlowChat.csproj.GenerateResource.Cache
+C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\obj\Debug\FlowChat.dll
+C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\obj\Debug\FlowChat.pdb
+C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\bin\FlowChat.dll.config
+C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\bin\FlowChat.dll
+C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\bin\FlowChat.pdb
+E:\Projects\FlowChat\FlowChat\bin\FlowChat.dll.config
+E:\Projects\FlowChat\FlowChat\bin\FlowChat.dll
+E:\Projects\FlowChat\FlowChat\bin\FlowChat.pdb
+E:\Projects\FlowChat\FlowChat\FlowChat\obj\Debug\FlowChat.csprojResolveAssemblyReference.cache
+E:\Projects\FlowChat\FlowChat\FlowChat\obj\Debug\TestProject.Properties.Resources.resources
+E:\Projects\FlowChat\FlowChat\FlowChat\obj\Debug\FlowChat.csproj.GenerateResource.Cache
+E:\Projects\FlowChat\FlowChat\FlowChat\obj\Debug\FlowChat.dll
+E:\Projects\FlowChat\FlowChat\FlowChat\obj\Debug\FlowChat.pdb

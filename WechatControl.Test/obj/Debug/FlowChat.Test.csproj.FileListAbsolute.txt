@@ -1,0 +1,36 @@
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\FlowChat.Test\bin\Debug\images\duihao.png
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\FlowChat.Test\bin\Debug\FlowChat.Test.exe.config
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\FlowChat.Test\bin\Debug\FlowChat.Test.exe
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\FlowChat.Test\bin\Debug\FlowChat.Test.pdb
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\FlowChat.Test\bin\Debug\FlowChat.pdb
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\FlowChat.Test\obj\Debug\FlowChat.Test.csprojResolveAssemblyReference.cache
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\FlowChat.Test\obj\Debug\FlowChat.Test.Properties.Resources.resources
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\FlowChat.Test\obj\Debug\FlowChat.Test.csproj.GenerateResource.Cache
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\FlowChat.Test\obj\Debug\FlowChat.Test.exe
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\FlowChat.Test\obj\Debug\FlowChat.Test.pdb
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\FlowChat.Test\bin\Debug\FlowChat.dll
+C:\Users\HHHY\documents\visual studio 2015\Projects\TestProject\FlowChat.Test\obj\Debug\TestProject.TestApp.resources
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\FlowChat.Test\bin\Debug\FlowChat.Test.exe.config
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\FlowChat.Test\obj\Debug\FlowChat.Test.exe
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\FlowChat.Test\obj\Debug\FlowChat.Test.pdb
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\FlowChat.Test\obj\Debug\FlowChat.Test.csprojResolveAssemblyReference.cache
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\FlowChat.Test\obj\Debug\FlowChat.Test.Properties.Resources.resources
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\FlowChat.Test\obj\Debug\FlowChat.Test.csproj.GenerateResource.Cache
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\FlowChat.Test\bin\Debug\images\duihao.png
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\FlowChat.Test\bin\Debug\FlowChat.Test.exe
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\FlowChat.Test\bin\Debug\FlowChat.Test.pdb
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\FlowChat.Test\bin\Debug\FlowChat.dll
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\FlowChat.Test\bin\Debug\FlowChat.pdb
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\FlowChat.Test\obj\Debug\FlowChat.Test.TestApp.resources
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\bin\FlowChat.Test.exe.config
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\bin\FlowChat.Test.exe
+C:\Users\HHHY\Documents\visual studio 2015\Projects\FlowChat\bin\FlowChat.Test.pdb
+E:\Projects\FlowChat\FlowChat\bin\FlowChat.Test.exe.config
+E:\Projects\FlowChat\FlowChat\FlowChat.Test\obj\Debug\FlowChat.Test.exe
+E:\Projects\FlowChat\FlowChat\FlowChat.Test\obj\Debug\FlowChat.Test.pdb
+E:\Projects\FlowChat\FlowChat\bin\FlowChat.Test.exe
+E:\Projects\FlowChat\FlowChat\bin\FlowChat.Test.pdb
+E:\Projects\FlowChat\FlowChat\FlowChat.Test\obj\Debug\FlowChat.Test.csprojResolveAssemblyReference.cache
+E:\Projects\FlowChat\FlowChat\FlowChat.Test\obj\Debug\FlowChat.Test.Properties.Resources.resources
+E:\Projects\FlowChat\FlowChat\FlowChat.Test\obj\Debug\FlowChat.Test.TestApp.resources
+E:\Projects\FlowChat\FlowChat\FlowChat.Test\obj\Debug\FlowChat.Test.csproj.GenerateResource.Cache

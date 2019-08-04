@@ -1,0 +1,8 @@
+E:\Projects\FlowChat\FlowChat\WechatControl\obj\Debug\WechatControl.csprojResolveAssemblyReference.cache
+E:\Projects\FlowChat\FlowChat\WechatControl\obj\Debug\WechatControl.Properties.Resources.resources
+E:\Projects\FlowChat\FlowChat\WechatControl\obj\Debug\WechatControl.csproj.GenerateResource.Cache
+E:\Projects\FlowChat\FlowChat\bin\WechatControl.dll.config
+E:\Projects\FlowChat\FlowChat\bin\WechatControl.dll
+E:\Projects\FlowChat\FlowChat\bin\WechatControl.pdb
+E:\Projects\FlowChat\FlowChat\WechatControl\obj\Debug\WechatControl.dll
+E:\Projects\FlowChat\FlowChat\WechatControl\obj\Debug\WechatControl.pdb
