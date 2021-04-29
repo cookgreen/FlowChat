@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace FlowChatClient
 {
-    public partial class FlowChatCreateUser : Form
+    public partial class frmRegisterUser : Form
     {
-        public FlowChatCreateUser()
+        public frmRegisterUser()
         {
             InitializeComponent();
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }

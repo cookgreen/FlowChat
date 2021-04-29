@@ -7,8 +7,8 @@
     <ProjectGuid>{7D8BAB92-626F-413D-8828-AE350B3902FD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WechatControl</RootNamespace>
-    <AssemblyName>WechatControl</AssemblyName>
+    <RootNamespace>FlowChatControl</RootNamespace>
+    <AssemblyName>FlowChatControl</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

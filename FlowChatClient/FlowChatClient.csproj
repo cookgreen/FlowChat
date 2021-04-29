@@ -7,8 +7,8 @@
     <ProjectGuid>{D85A7B1C-6B8F-43E6-B2B6-3D022E3B0AE4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WechatControl.Test</RootNamespace>
-    <AssemblyName>WechatControl.Test</AssemblyName>
+    <RootNamespace>FlowChatClient</RootNamespace>
+    <AssemblyName>FlowChatClient</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
