@@ -6,7 +6,8 @@ namespace FlowChatServer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ServerApp serverApp = new ServerApp();
+            serverApp.Run();
         }
     }
 }

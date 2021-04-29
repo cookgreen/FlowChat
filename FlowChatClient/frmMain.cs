@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FlowChatControl;
 using FlowChatControl.Forms;
+using FlowChatControl.Model;
 
 namespace FlowChatClient
 {
     public partial class frmMain : Form
     {
-        
-
-        public frmMain()
+        public frmMain(FlowChatUserModel userData)
         {
             InitializeComponent();
 

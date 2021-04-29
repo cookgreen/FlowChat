@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlowChatControl.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,9 @@ namespace FlowChatClient
 {
     public partial class frmRegisterUser : Form
     {
+        private FlowChatUserModel userData;
+        public FlowChatUserModel UserData { get { return userData; } }
+
         public frmRegisterUser()
         {
             InitializeComponent();
