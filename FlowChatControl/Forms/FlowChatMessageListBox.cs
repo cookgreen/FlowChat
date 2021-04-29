@@ -92,9 +92,6 @@ namespace FlowChatControl
                     Items[i].IsFocus = true;
                     lastMouseMoveItem = Items[i];
                     Invalidate();
-
-                    SelectedMessageItemChanged?.Invoke(this, lastMouseMoveItem);
-
                     break;
                 }
                 else
@@ -119,6 +116,9 @@ namespace FlowChatControl
                     Items[i].IsClick = true;
                     lastClickItem = Items[i];
                     Invalidate();
+
+                    SelectedMessageItemChanged?.Invoke(this, lastMouseMoveItem);
+
                     break;
                 }
             }
