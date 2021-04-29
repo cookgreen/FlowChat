@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WechatControl.Forms
+namespace FlowChatControl.Forms
 {
     public partial class FlowChatMessageContentSendCtrl : UserControl
     {

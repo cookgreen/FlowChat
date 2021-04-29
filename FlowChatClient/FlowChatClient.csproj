@@ -47,25 +47,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FlowChatCreateUser.cs">
+    <Compile Include="frmRegisterUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FlowChatCreateUser.Designer.cs">
-      <DependentUpon>FlowChatCreateUser.cs</DependentUpon>
+    <Compile Include="frmRegisterUser.Designer.cs">
+      <DependentUpon>frmRegisterUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="FlowChatDemo.cs">
+    <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FlowChatDemo.Designer.cs">
-      <DependentUpon>FlowChatDemo.cs</DependentUpon>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FlowChatCreateUser.resx">
-      <DependentUpon>FlowChatCreateUser.cs</DependentUpon>
+    <EmbeddedResource Include="frmRegisterUser.resx">
+      <DependentUpon>frmRegisterUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FlowChatDemo.resx">
-      <DependentUpon>FlowChatDemo.cs</DependentUpon>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -91,7 +91,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WechatControl\FlowChatControls.csproj">
+    <ProjectReference Include="..\FlowChatControl\FlowChatControls.csproj">
       <Project>{7d8bab92-626f-413d-8828-ae350b3902fd}</Project>
       <Name>FlowChatControls</Name>
     </ProjectReference>

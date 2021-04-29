@@ -6,17 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WechatControl
+namespace FlowChatControl
 {
     public class FlowChatGroupListBox : FlowChatScrollableListBox
     {
-        public List<FlowChatItem> Users;
-        private FlowChatItem lastClickItem;
-        private FlowChatItem lastMouseMoveItem;
+        public List<FlowChatItemModel> Users;
+        private FlowChatItemModel lastClickItem;
+        private FlowChatItemModel lastMouseMoveItem;
         private string lastGroupName;
         public FlowChatGroupListBox()
         {
-            Users = new List<FlowChatItem>();
+            Users = new List<FlowChatItemModel>();
             DoubleBuffered = true;
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
@@ -157,7 +157,7 @@ namespace WechatControl
                 }
             }
         }
-        public void AddUser(FlowChatItem newUser)
+        public void AddUser(FlowChatItemModel newUser)
         {
             Users.Add(newUser);
             Users = (from user in Users

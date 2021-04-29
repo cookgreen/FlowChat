@@ -1,7 +1,9 @@
 ﻿
-namespace WechatControl.Test
+using FlowChatControl;
+
+namespace FlowChatClient
 {
-    partial class FlowChatDemo
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +32,7 @@ namespace WechatControl.Test
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.flowChatMessageListBox1 = new WechatControl.FlowChatMessageListBox();
+            this.flowChatMessageListBox1 = new FlowChatControl.FlowChatMessageListBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -58,14 +60,15 @@ namespace WechatControl.Test
             this.flowChatMessageListBox1.TabIndex = 0;
             this.flowChatMessageListBox1.Text = "flowChatMessageListBox1";
             // 
-            // FlowChatDemo
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 463);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "FlowChatDemo";
-            this.Text = "FlowChatDemo";
+            this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "FlowChat";
             this.splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);

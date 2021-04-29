@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WechatControl
+namespace FlowChatControl
 {
-    public class FlowChatMessageContentItem
+    public class FlowChatMessageContentItemModel
     {
         public string ImageUrl { get; set; }
         public Image Image { get; set; }

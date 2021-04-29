@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowChatClient", "FlowChatClient\FlowChatClient.csproj", "{D85A7B1C-6B8F-43E6-B2B6-3D022E3B0AE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowChatControls", "FlowChatControls\FlowChatControls.csproj", "{7D8BAB92-626F-413D-8828-AE350B3902FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowChatControl", "FlowChatControl\FlowChatControls.csproj", "{7D8BAB92-626F-413D-8828-AE350B3902FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowChatServer", "FlowChatServer\FlowChatServer.csproj", "{6DD807AA-B16D-47BD-BDB2-3F244D5D6A65}"
 EndProject

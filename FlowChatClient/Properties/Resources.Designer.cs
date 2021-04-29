@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WechatControl.Test.Properties {
+namespace FlowChatControl.Test.Properties {
     using System;
     
     

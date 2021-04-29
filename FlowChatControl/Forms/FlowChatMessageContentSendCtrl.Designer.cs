@@ -1,5 +1,5 @@
 ﻿
-namespace WechatControl.Forms
+namespace FlowChatControl.Forms
 {
     partial class FlowChatMessageContentSendCtrl
     {
@@ -30,7 +30,7 @@ namespace WechatControl.Forms
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.flowChatMessageListBox1 = new WechatControl.FlowChatMessageListBox();
+            this.flowChatMessageListBox1 = new FlowChatControl.FlowChatMessageListBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();

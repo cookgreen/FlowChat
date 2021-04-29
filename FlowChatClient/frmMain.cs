@@ -7,28 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WechatControl.Forms;
+using FlowChatControl;
+using FlowChatControl.Forms;
 
-namespace WechatControl.Test
+namespace FlowChatClient
 {
-    public partial class FlowChatDemo : Form
+    public partial class frmMain : Form
     {
         
 
-        public FlowChatDemo()
+        public frmMain()
         {
             InitializeComponent();
 
             flowChatMessageListBox1.SelectedMessageItemChanged += FlowChatMessageListBox1_SelectedMessageItemChanged;
 
-            flowChatMessageListBox1.Items.Add(new FlowChatMessageItem()
+            flowChatMessageListBox1.Items.Add(new FlowChatMessageItemModel()
             {
                 ImageUrl = "avatar.png",
                 MessagerName = "发消息的人",
             });
         }
 
-        private void FlowChatMessageListBox1_SelectedMessageItemChanged(object arg1, FlowChatMessageItem arg2)
+        private void FlowChatMessageListBox1_SelectedMessageItemChanged(object arg1, FlowChatMessageItemModel arg2)
         {
             FlowChatMessageContentSendCtrl flowChatMessageContentItem = new FlowChatMessageContentSendCtrl();
             splitContainer1.Panel2.Controls.Clear();

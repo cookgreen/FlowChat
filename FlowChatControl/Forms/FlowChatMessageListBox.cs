@@ -7,19 +7,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WechatControl
+namespace FlowChatControl
 {
     public class FlowChatMessageListBox : FlowChatScrollableListBox
     {
-        private FlowChatMessageItem lastMouseMoveItem;
-        private FlowChatMessageItem lastClickItem;
-        public List<FlowChatMessageItem> Items;
+        private FlowChatMessageItemModel lastMouseMoveItem;
+        private FlowChatMessageItemModel lastClickItem;
+        public List<FlowChatMessageItemModel> Items;
 
-        public event Action<object, FlowChatMessageItem> SelectedMessageItemChanged;
+        public event Action<object, FlowChatMessageItemModel> SelectedMessageItemChanged;
 
         public FlowChatMessageListBox()
         {
-            Items = new List<FlowChatMessageItem>();
+            Items = new List<FlowChatMessageItemModel>();
             DoubleBuffered = true;
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);

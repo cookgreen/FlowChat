@@ -63,7 +63,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Forms\FlowChatScrollBar.cs" />
-    <Compile Include="Model\FlowChatCheckItem.cs" />
+    <Compile Include="Model\FlowChatCheckItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\FlowChatGroupListBox.cs">
       <SubType>Component</SubType>
@@ -71,12 +71,12 @@
     <Compile Include="Forms\FlowChatMessageContentListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Model\FlowChatMessageContentItem.cs" />
+    <Compile Include="Model\FlowChatMessageContentItemModel.cs" />
     <Compile Include="Forms\FlowChatMessageListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Model\FlowChatMessageItem.cs" />
-    <Compile Include="Model\FlowChatItem.cs" />
+    <Compile Include="Model\FlowChatMessageItemModel.cs" />
+    <Compile Include="Model\FlowChatItemModel.cs" />
     <EmbeddedResource Include="Forms\FlowChatMessageContentSendCtrl.resx">
       <DependentUpon>FlowChatMessageContentSendCtrl.cs</DependentUpon>
     </EmbeddedResource>

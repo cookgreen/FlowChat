@@ -7,17 +7,17 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace WechatControl
+namespace FlowChatControl
 {
     public class FlowChatMessageContentListBox : FlowChatScrollableListBox
     {
         private const int MAX_MSG_TEXT_WIDTH = 175;
         private const int MAX_MSG_RECT_WIDTH = 195;
         private const int MSG_BETWEEN_TEXT_AND_RECT_WIDTH = 9;
-        public List<FlowChatMessageContentItem> ChatItems;
+        public List<FlowChatMessageContentItemModel> ChatItems;
         public FlowChatMessageContentListBox()
         {
-            ChatItems = new List<FlowChatMessageContentItem>();
+            ChatItems = new List<FlowChatMessageContentItemModel>();
         }
         protected override void OnPaint(PaintEventArgs e)
         {

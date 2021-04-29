@@ -1,5 +1,5 @@
 ﻿
-namespace WechatControl.Test
+namespace FlowChatClient
 {
     partial class FlowChatCreateUser
     {

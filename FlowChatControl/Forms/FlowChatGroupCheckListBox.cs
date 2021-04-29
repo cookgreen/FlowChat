@@ -1,4 +1,4 @@
-﻿using WechatControl.Properties;
+﻿using FlowChatControl.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,18 +7,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WechatControl
+namespace FlowChatControl
 {
-    public delegate void FlowChatCheckItemChangedHanlder(object sender, FlowChatCheckItem checkedUser);
+    public delegate void FlowChatCheckItemChangedHanlder(object sender, FlowChatCheckItemModel checkedUser);
     public class FlowChatGroupCheckListBox : FlowChatScrollableListBox
     {
         public event FlowChatCheckItemChangedHanlder OnSelectItemChanged;
-        private FlowChatCheckItem lastClickItem;
-        private FlowChatCheckItem lastMouseMoveItem;
+        private FlowChatCheckItemModel lastClickItem;
+        private FlowChatCheckItemModel lastMouseMoveItem;
         private string lastGroupName;
-        private List<FlowChatCheckItem> items;
-        private List<FlowChatCheckItem> checkedItems;
-        public List<FlowChatCheckItem> CheckedItems
+        private List<FlowChatCheckItemModel> items;
+        private List<FlowChatCheckItemModel> checkedItems;
+        public List<FlowChatCheckItemModel> CheckedItems
         {
             get
             {
@@ -28,8 +28,8 @@ namespace WechatControl
 
         public FlowChatGroupCheckListBox()
         {
-            items = new List<FlowChatCheckItem>();
-            checkedItems = new List<FlowChatCheckItem>();
+            items = new List<FlowChatCheckItemModel>();
+            checkedItems = new List<FlowChatCheckItemModel>();
             DoubleBuffered = true;
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
@@ -225,7 +225,7 @@ namespace WechatControl
             }
         }
 
-        public void AddItem(FlowChatCheckItem newItem)
+        public void AddItem(FlowChatCheckItemModel newItem)
         {
             items.Add(newItem);
             items = (from item in items
