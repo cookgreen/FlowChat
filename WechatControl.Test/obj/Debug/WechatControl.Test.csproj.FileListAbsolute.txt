@@ -1,9 +1,0 @@
-E:\Projects\FlowChat\FlowChat\WechatControl.Test\obj\Debug\WechatControl.Test.csprojResolveAssemblyReference.cache
-E:\Projects\FlowChat\FlowChat\WechatControl.Test\obj\Debug\WechatControl.Test.csproj.GenerateResource.Cache
-E:\Projects\FlowChat\FlowChat\WechatControl.Test\obj\Debug\WechatControl.Test.TestApp.resources
-E:\Projects\FlowChat\FlowChat\bin\WechatControl.Test.exe.config
-E:\Projects\FlowChat\FlowChat\bin\WechatControl.Test.exe
-E:\Projects\FlowChat\FlowChat\bin\WechatControl.Test.pdb
-E:\Projects\FlowChat\FlowChat\WechatControl.Test\obj\Debug\WechatControl.Test.Properties.Resources.resources
-E:\Projects\FlowChat\FlowChat\WechatControl.Test\obj\Debug\WechatControl.Test.exe
-E:\Projects\FlowChat\FlowChat\WechatControl.Test\obj\Debug\WechatControl.Test.pdb

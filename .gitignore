@@ -1,6 +1,4 @@
-*.exe
-*.pdb
-obj/*
-*.manifest
-*.exe.config
-*.suo
+*.vs
+bin/*
+*/bin/*
+*/obj/*

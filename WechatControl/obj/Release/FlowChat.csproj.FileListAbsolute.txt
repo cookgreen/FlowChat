@@ -1,7 +1,0 @@
-C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\bin\Release\FlowChat.dll.config
-C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\bin\Release\FlowChat.dll
-C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\bin\Release\FlowChat.pdb
-C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\obj\Release\TestProject.Properties.Resources.resources
-C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\obj\Release\FlowChat.csproj.GenerateResource.Cache
-C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\obj\Release\FlowChat.dll
-C:\Users\HHHY\Documents\Visual Studio 2015\Projects\FlowChat\FlowChat\obj\Release\FlowChat.pdb
