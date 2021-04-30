@@ -41,7 +41,7 @@ namespace FlowChatClient
 
             RequestUserListExcludeCurrentUserFromServer();
 
-            Text += session.UserData.UserName;
+            Text += " - " + session.UserData.UserName;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
