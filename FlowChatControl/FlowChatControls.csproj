@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\FlowChatReceiveDataJson.cs" />
+    <Compile Include="Data\FlowChatReceiveUserListDataJson.cs" />
+    <Compile Include="FlowChatConsts.cs" />
     <Compile Include="Forms\FlowChatGroupCheckListBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -70,8 +73,8 @@
       <DependentUpon>frmLoadingWin.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\FlowChatCheckItemModel.cs" />
-    <Compile Include="Model\FlowChatReceiveDataJson.cs" />
-    <Compile Include="Model\FlowChatSendDataJson.cs" />
+    <Compile Include="Data\FlowChatReceiveLoginDataJson.cs" />
+    <Compile Include="Data\FlowChatSendLoginDataJson.cs" />
     <Compile Include="Model\FlowChatUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\FlowChatGroupListBox.cs">

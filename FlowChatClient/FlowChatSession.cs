@@ -13,6 +13,9 @@ namespace FlowChatClient
         private TcpClient tcpClient;
         private FlowChatUserModel userData;
 
+        public TcpClient TcpClient { get { return tcpClient; } }
+        public FlowChatUserModel UserData { get { return userData; } }
+
         public FlowChatSession(TcpClient tcpClient, FlowChatUserModel userData)
         {
             this.tcpClient = tcpClient;

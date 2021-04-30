@@ -12,7 +12,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
-using System.Web.Script.Serialization;
 
 namespace FlowChatClient
 {
@@ -52,8 +51,6 @@ namespace FlowChatClient
             }
             else
             {
-                MessageBox.Show("Success!");
-
                 Hide();
                 frmControlPanel controlPanelWin = new frmControlPanel(TcpClient);
                 controlPanelWin.ShowDialog();

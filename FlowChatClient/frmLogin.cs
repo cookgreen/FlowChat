@@ -12,7 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
-using System.Web.Script.Serialization;
+using FlowChatControl;
+using FlowChatControl.Data;
 
 namespace FlowChatClient
 {
@@ -54,8 +55,6 @@ namespace FlowChatClient
             }
             else
             {
-                MessageBox.Show("Success!");
-
                 DialogResult = DialogResult.OK;
                 Close();
             }
@@ -71,12 +70,13 @@ namespace FlowChatClient
                 userModel.UserName = txtUsername.Text;
                 userModel.Password = txtPassword.Text;
 
-                FlowChatSendDataJson sendLoginDataJson = new FlowChatSendDataJson();
+                FlowChatSendLoginDataJson sendLoginDataJson = new FlowChatSendLoginDataJson();
                 sendLoginDataJson.Type = "Login";
-                sendLoginDataJson.UserData = userModel;
+                sendLoginDataJson.Data = userModel;
 
-                string jsonStr = sendLoginDataJson.ToJSON(); 
-                
+                string jsonStr = sendLoginDataJson.ToJSON();
+                jsonStr = FlowChatConsts.NETWORK_SEND_DATA_LOGIN_REGISTER_PREFIX + "|" + jsonStr;
+
                 NetworkStream stream = tcpClient.GetStream();
                 var buffer = Encoding.UTF8.GetBytes(jsonStr);
                 stream.Write(buffer, 0, buffer.Length);
@@ -90,23 +90,27 @@ namespace FlowChatClient
                 {
                     newBuffer[i] = buffer[i];
                 }
-                jsonStr = Encoding.UTF8.GetString(newBuffer);
-                
-                JavaScriptSerializer serializer = new JavaScriptSerializer();
-                
-                FlowChatReceiveDataJson recvLoginData = serializer.Deserialize(jsonStr, typeof(FlowChatReceiveDataJson)) as FlowChatReceiveDataJson;
-                if (recvLoginData.Status == 1)
-                {
-                    var useData = recvLoginData.UserData;
-                    session = new FlowChatSession(tcpClient, useData);
 
-                    arr[0] = "Success";
-                    arr[1] = null;
-                }
-                else
+                var str = Encoding.UTF8.GetString(newBuffer);
+                string[] tokens = str.Split('|');
+                switch(tokens[0])
                 {
-                    arr[0] = "Failed";
-                    arr[1] = "Login Failed!";
+                    case FlowChatConsts.NETWORK_RECV_DATA_LOGIN_REGISTER_PREFIX:
+                        FlowChatReceiveLoginDataJson recvLoginData = JsonConvert.DeserializeObject<FlowChatReceiveLoginDataJson>(tokens[1]);
+                        if (recvLoginData.Status == 1)
+                        {
+                            var useData = recvLoginData.Data;
+                            session = new FlowChatSession(tcpClient, useData);
+
+                            arr[0] = "Success";
+                            arr[1] = null;
+                        }
+                        else
+                        {
+                            arr[0] = "Failed";
+                            arr[1] = "Login Failed!";
+                        }
+                        break;
                 }
             }
             catch(Exception ex)

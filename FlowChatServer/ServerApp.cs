@@ -15,6 +15,11 @@ namespace FlowChatServer
         private bool isExit;
         private List<ServerAppClient> currentConnectedClients;
 
+        public List<ServerAppClient> ConnectedClients
+        {
+            get { return currentConnectedClients; }
+        }
+
         public ServerApp()
         {
             isExit = false;
@@ -36,7 +41,7 @@ namespace FlowChatServer
 
                 Console.WriteLine("Client " + tcpClient.Client.RemoteEndPoint.ToString() + " connected!");
 
-                ServerAppClient serverAppClient = new ServerAppClient(tcpClient);
+                ServerAppClient serverAppClient = new ServerAppClient(tcpClient, this);
                 serverAppClient.Exited += () =>
                 {
                     Console.WriteLine("Client " + serverAppClient.TcpClient.Client.RemoteEndPoint.ToString() + " Exited!");
