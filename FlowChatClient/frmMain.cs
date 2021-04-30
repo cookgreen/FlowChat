@@ -40,6 +40,8 @@ namespace FlowChatClient
             flowChatMessageListBox1.SelectedMessageItemChanged += FlowChatMessageListBox1_SelectedMessageItemChanged;
 
             RequestUserListExcludeCurrentUserFromServer();
+
+            Text += session.UserData.UserName;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -137,7 +139,7 @@ namespace FlowChatClient
 
         private void FlowChatMessageListBox1_SelectedMessageItemChanged(object arg1, FlowChatMessageItemModel arg2)
         {
-            FlowChatMessageContentSendCtrl flowChatMessageContentItem = new FlowChatMessageContentSendCtrl();
+            FlowChatMessageContentSendCtrl flowChatMessageContentItem = new FlowChatMessageContentSendCtrl(session, arg2);
             splitContainer1.Panel2.Controls.Clear();
             flowChatMessageContentItem.Dock = DockStyle.Fill;
             splitContainer1.Panel2.Controls.Add(flowChatMessageContentItem);

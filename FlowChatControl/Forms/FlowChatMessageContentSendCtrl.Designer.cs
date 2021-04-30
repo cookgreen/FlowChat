@@ -30,8 +30,8 @@ namespace FlowChatControl.Forms
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.flowChatMessageContentListBox1 = new FlowChatControl.FlowChatMessageContentListBox();
+            this.txtMessage = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -51,36 +51,38 @@ namespace FlowChatControl.Forms
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(686, 528);
-            this.splitContainer1.SplitterDistance = 404;
+            this.splitContainer1.Panel2.Controls.Add(this.txtMessage);
+            this.splitContainer1.Size = new System.Drawing.Size(684, 526);
+            this.splitContainer1.SplitterDistance = 402;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(686, 120);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
             // 
             // flowChatMessageContentListBox1
             // 
             this.flowChatMessageContentListBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowChatMessageContentListBox1.Location = new System.Drawing.Point(0, 0);
             this.flowChatMessageContentListBox1.Name = "flowChatMessageContentListBox1";
-            this.flowChatMessageContentListBox1.Size = new System.Drawing.Size(686, 404);
+            this.flowChatMessageContentListBox1.Size = new System.Drawing.Size(684, 402);
             this.flowChatMessageContentListBox1.TabIndex = 0;
             this.flowChatMessageContentListBox1.Text = "flowChatMessageContentListBox1";
+            // 
+            // txtMessage
+            // 
+            this.txtMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessage.Location = new System.Drawing.Point(0, 0);
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.Size = new System.Drawing.Size(684, 120);
+            this.txtMessage.TabIndex = 0;
+            this.txtMessage.Text = "";
+            this.txtMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMessage_KeyDown);
             // 
             // FlowChatMessageContentSendCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.splitContainer1);
             this.Name = "FlowChatMessageContentSendCtrl";
-            this.Size = new System.Drawing.Size(686, 528);
+            this.Size = new System.Drawing.Size(684, 526);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -92,7 +94,7 @@ namespace FlowChatControl.Forms
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtMessage;
         private FlowChatMessageContentListBox flowChatMessageContentListBox1;
     }
 }

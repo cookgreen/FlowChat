@@ -1,4 +1,5 @@
-﻿using FlowChatControl.Model;
+﻿using FlowChatControl;
+using FlowChatControl.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -38,9 +38,11 @@ namespace FlowChatControl
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            Graphics g = e.Graphics;
+
             y = 0;
             view_y = 0;
-            Graphics g = e.Graphics;
+
             Rectangle rect = new Rectangle(0, 0, Width, Height);
             g.FillRectangle(new SolidBrush(Color.FromArgb(245, 245, 245)), rect);
             for (int i = 0; i < ChatItems.Count; i++)
