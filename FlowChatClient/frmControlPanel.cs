@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,15 +13,18 @@ namespace FlowChatClient
 {
     public partial class frmControlPanel : Form
     {
-        public frmControlPanel()
+        private TcpClient tcpClient;
+
+        public frmControlPanel(TcpClient tcpClient)
         {
             InitializeComponent();
+            this.tcpClient = tcpClient;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Hide();
-            frmLogin loginWin = new frmLogin();
+            frmLogin loginWin = new frmLogin(tcpClient);
             if (loginWin.ShowDialog() == DialogResult.OK)
             {
                 var session = loginWin.Session;
@@ -36,7 +40,7 @@ namespace FlowChatClient
         private void btnRegister_Click(object sender, EventArgs e)
         {
             Hide();
-            frmRegister registerWin = new frmRegister();
+            frmRegister registerWin = new frmRegister(tcpClient);
             if (registerWin.ShowDialog() == DialogResult.OK)
             {
                 //var userData = registerWin.UserData;
@@ -47,6 +51,11 @@ namespace FlowChatClient
             {
                 Show();
             }
+        }
+
+        private void frmControlPanel_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

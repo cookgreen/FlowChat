@@ -39,5 +39,10 @@ namespace FlowChatClient
             flowChatMessageContentItem.Dock = DockStyle.Fill;
             splitContainer1.Panel2.Controls.Add(flowChatMessageContentItem);
         }
+
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

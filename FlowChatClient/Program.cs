@@ -16,7 +16,7 @@ namespace FlowChatClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmControlPanel());
+            Application.Run(new frmConnection());
         }
     }
 }

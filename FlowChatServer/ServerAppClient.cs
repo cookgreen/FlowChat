@@ -52,7 +52,7 @@ namespace FlowChatServer
                     string str = Encoding.UTF8.GetString(newBuffer);
 
                     JavaScriptSerializer serializer = new JavaScriptSerializer();
-                    FlowChatSendDataLoginJson sendLoginData = serializer.Deserialize(str, typeof(FlowChatSendDataLoginJson)) as FlowChatSendDataLoginJson;
+                    FlowChatSendDataJson sendLoginData = serializer.Deserialize(str, typeof(FlowChatSendDataJson)) as FlowChatSendDataJson;
                     if (sendLoginData.Type == "Login")
                     {
                         FlowChatUserModel loginUserData = sendLoginData.UserData;
@@ -61,7 +61,7 @@ namespace FlowChatServer
 
                         if (userDAL.CheckUser(loginUserData.UserName, loginUserData.Password, out loginUserData))
                         {
-                            FlowChatReceiveDataLoginJson recvLoginData = new FlowChatReceiveDataLoginJson();
+                            FlowChatReceiveDataJson recvLoginData = new FlowChatReceiveDataJson();
                             recvLoginData.UserData = loginUserData;
                             recvLoginData.Type = "Login";
                             recvLoginData.Status = 1;
@@ -73,7 +73,7 @@ namespace FlowChatServer
                         }
                         else
                         {
-                            FlowChatReceiveDataLoginJson recvLoginData = new FlowChatReceiveDataLoginJson();
+                            FlowChatReceiveDataJson recvLoginData = new FlowChatReceiveDataJson();
                             recvLoginData.UserData = null;
                             recvLoginData.Type = "Login";
                             recvLoginData.Status = 0;
@@ -82,6 +82,31 @@ namespace FlowChatServer
                             tcpClient.Client.Send(Encoding.UTF8.GetBytes(recvLoginData.ToJSON()));
 
                             Console.WriteLine("Client " + tcpClient.Client.RemoteEndPoint.ToString() + " Login Failed!");
+                        }
+                    }
+                    else if (sendLoginData.Type == "Register")
+                    {
+                        FlowChatUserModel registerUserData = sendLoginData.UserData;
+                        if (!userDAL.CheckUser(registerUserData.UserName, out registerUserData)) 
+                        {
+                            userDAL.AddUser(registerUserData, out registerUserData);
+
+                            FlowChatReceiveDataJson recvRegData = new FlowChatReceiveDataJson();
+                            recvRegData.UserData = registerUserData;
+                            recvRegData.Type = "Register";
+                            recvRegData.Status = 1;
+
+                            tcpClient.Client.Send(Encoding.UTF8.GetBytes(recvRegData.ToJSON()));
+                        }
+                        else
+                        {
+                            FlowChatReceiveDataJson recvRegData = new FlowChatReceiveDataJson();
+                            recvRegData.UserData = null;
+                            recvRegData.Type = "Register";
+                            recvRegData.Status = 0;
+                            recvRegData.Message = "The User with the same username has already existed!";
+
+                            tcpClient.Client.Send(Encoding.UTF8.GetBytes(recvRegData.ToJSON()));
                         }
                     }
                 }

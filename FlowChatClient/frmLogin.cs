@@ -21,13 +21,15 @@ namespace FlowChatClient
         private frmLoadingWin loadingWin;
         private BackgroundWorker loginWorker;
         private TcpClient tcpClient;
-        private bool isConnected;
         private FlowChatSession session;
         public FlowChatSession Session { get { return session; } }
         
-        public frmLogin()
+        public frmLogin(TcpClient tcpClient)
         {
             InitializeComponent();
+
+            this.tcpClient = tcpClient;
+
             loadingWin = new frmLoadingWin();
             loginWorker = new BackgroundWorker();
             loginWorker.DoWork += Worker_DoWork;
@@ -65,17 +67,11 @@ namespace FlowChatClient
 
             try
             {
-                if (!isConnected)
-                {
-                    tcpClient = new TcpClient(txtIP.Text, int.Parse(txtPort.Text));
-                    isConnected = true;
-                }
-
                 FlowChatUserModel userModel = new FlowChatUserModel();
                 userModel.UserName = txtUsername.Text;
                 userModel.Password = txtPassword.Text;
 
-                FlowChatSendDataLoginJson sendLoginDataJson = new FlowChatSendDataLoginJson();
+                FlowChatSendDataJson sendLoginDataJson = new FlowChatSendDataJson();
                 sendLoginDataJson.Type = "Login";
                 sendLoginDataJson.UserData = userModel;
 
@@ -98,7 +94,7 @@ namespace FlowChatClient
                 
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
                 
-                FlowChatReceiveDataLoginJson recvLoginData = serializer.Deserialize(jsonStr, typeof(FlowChatReceiveDataLoginJson)) as FlowChatReceiveDataLoginJson;
+                FlowChatReceiveDataJson recvLoginData = serializer.Deserialize(jsonStr, typeof(FlowChatReceiveDataJson)) as FlowChatReceiveDataJson;
                 if (recvLoginData.Status == 1)
                 {
                     var useData = recvLoginData.UserData;
@@ -138,16 +134,6 @@ namespace FlowChatClient
             else if (string.IsNullOrEmpty(txtPassword.Text))
             {
                 MessageBox.Show("Please input a valid password!");
-                return;
-            }
-            else if (!IPAddress.TryParse(txtIP.Text, out _))
-            {
-                MessageBox.Show("Please input a valid ip address!");
-                return;
-            }
-            else if(!int.TryParse(txtPort.Text, out _))
-            {
-                MessageBox.Show("Please input a valid port!");
                 return;
             }
 

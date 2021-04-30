@@ -35,10 +35,6 @@ namespace FlowChatClient
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPort = new System.Windows.Forms.TextBox();
-            this.txtIP = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -76,7 +72,7 @@ namespace FlowChatClient
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(171, 124);
+            this.btnCancel.Location = new System.Drawing.Point(171, 64);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 4;
@@ -86,7 +82,7 @@ namespace FlowChatClient
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(90, 124);
+            this.btnLogin.Location = new System.Drawing.Point(90, 64);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 5;
@@ -94,49 +90,11 @@ namespace FlowChatClient
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 94);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 12);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Port:";
-            // 
-            // txtPort
-            // 
-            this.txtPort.Location = new System.Drawing.Point(78, 91);
-            this.txtPort.Name = "txtPort";
-            this.txtPort.Size = new System.Drawing.Size(168, 21);
-            this.txtPort.TabIndex = 8;
-            this.txtPort.Text = "6690";
-            // 
-            // txtIP
-            // 
-            this.txtIP.Location = new System.Drawing.Point(78, 64);
-            this.txtIP.Name = "txtIP";
-            this.txtIP.Size = new System.Drawing.Size(168, 21);
-            this.txtIP.TabIndex = 7;
-            this.txtIP.Text = "127.0.0.1";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 67);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 12);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "IP:";
-            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 157);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtPort);
-            this.Controls.Add(this.txtIP);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(258, 93);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label2);
@@ -164,9 +122,5 @@ namespace FlowChatClient
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtPort;
-        private System.Windows.Forms.TextBox txtIP;
-        private System.Windows.Forms.Label label4;
     }
 }
