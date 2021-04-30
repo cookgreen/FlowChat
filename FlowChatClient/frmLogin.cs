@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using FlowChatControl;
-using FlowChatControl.Data;
+using FlowChatControl.NetworkData;
 
 namespace FlowChatClient
 {

@@ -1,5 +1,5 @@
 ﻿using FlowChatControl;
-using FlowChatControl.Data;
+using FlowChatControl.NetworkData;
 using FlowChatControl.Model;
 using Newtonsoft.Json;
 using System;
@@ -66,8 +66,11 @@ namespace FlowChatServer
                             break;
                         case FlowChatConsts.NETWORK_SEND_DATA_MESSAGE:
                             break;
-                        case FlowChatConsts.NETWORK_RECV_DATA_REQUEST_USER_LIST:
+                        case FlowChatConsts.NETWORK_SEND_DATA_REQUEST_USER_LIST:
                             ReturnUserList(stream);
+                            break;
+                        case FlowChatConsts.NETWORK_SEND_DATA_DISCONNECT:
+                            SendDisconnectInfoToOtherClients(stream);
                             break;
                     }
                 }
@@ -77,6 +80,30 @@ namespace FlowChatServer
                     break;
                 }
             }
+        }
+
+        private void SendDisconnectInfoToOtherClients(NetworkStream stream)
+        {
+            var otherClients = getOtherClients();
+            foreach (var otherClient in otherClients)
+            {
+                FlowChatReceiveLoginDataJson recvLoginData = new FlowChatReceiveLoginDataJson();
+                recvLoginData.Data = loginedUserData;
+                recvLoginData.Type = "Disconnect";
+                recvLoginData.Status = 1;
+
+                otherClient.SendMessage(
+                    FlowChatConsts.NETWORK_RECV_DATA_USER_DISCONNECT + JsonConvert.SerializeObject(recvLoginData),
+                    stream);
+            }
+
+            Exited?.Invoke();
+        }
+
+        private void SendMessage(string data, NetworkStream stream)
+        {
+            var sendBuffer = Encoding.UTF8.GetBytes(data);
+            stream.Write(sendBuffer, 0, sendBuffer.Length);
         }
 
         private void ParseLoginDataAndReturn(string jsonStr, NetworkStream stream)
@@ -155,20 +182,38 @@ namespace FlowChatServer
             recvUserListData.Status = 1;
             recvUserListData.Message = null;
 
+            recvUserListData.UserList = getOtherUsers();
+
+            byte[] bytes = Encoding.UTF8.GetBytes(FlowChatConsts.NETWORK_RECV_DATA_REQUEST_USER_LIST + "|" + JsonConvert.SerializeObject(recvUserListData));
+            stream.Write(bytes, 0, bytes.Length);
+
+            System.Threading.Thread.Sleep(1000);
+        }
+
+        private List<FlowChatUserModel> getOtherUsers()
+        {
             List<FlowChatUserModel> usersExcludeCurrentList = new List<FlowChatUserModel>();
-            foreach(var connectedClient in serverApp.ConnectedClients)
+            foreach (var connectedClient in serverApp.ConnectedClients)
             {
                 if (connectedClient.isLogined && connectedClient.loginedUserData.UserName != loginedUserData.UserName)
                 {
                     usersExcludeCurrentList.Add(connectedClient.loginedUserData);
                 }
             }
-            recvUserListData.UserList = usersExcludeCurrentList;
+            return usersExcludeCurrentList;
+        }
 
-            byte[] bytes = Encoding.UTF8.GetBytes(FlowChatConsts.NETWORK_RECV_DATA_REQUEST_USER_LIST + "|" + JsonConvert.SerializeObject(recvUserListData));
-            stream.Write(bytes, 0, bytes.Length);
-
-            System.Threading.Thread.Sleep(1000);
+        private List<ServerAppClient> getOtherClients()
+        {
+            List<ServerAppClient> usersExcludeCurrentList = new List<ServerAppClient>();
+            foreach (var connectedClient in serverApp.ConnectedClients)
+            {
+                if (connectedClient.isLogined && connectedClient.loginedUserData.UserName != loginedUserData.UserName)
+                {
+                    usersExcludeCurrentList.Add(connectedClient);
+                }
+            }
+            return usersExcludeCurrentList;
         }
     }
 }

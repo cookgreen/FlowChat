@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FlowChatControl;
-using FlowChatControl.Data;
+using FlowChatControl.NetworkData;
 using FlowChatControl.Forms;
 using FlowChatControl.Model;
 using Newtonsoft.Json;
@@ -34,10 +34,12 @@ namespace FlowChatClient
 
             refreshUserListTimer = new Timer();
             refreshUserListTimer.Tick += Timer_Tick;
-            refreshUserListTimer.Interval = 12000;
+            refreshUserListTimer.Interval = 100;
             refreshUserListTimer.Start();
 
             flowChatMessageListBox1.SelectedMessageItemChanged += FlowChatMessageListBox1_SelectedMessageItemChanged;
+
+            RequestUserListExcludeCurrentUserFromServer();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -68,6 +70,9 @@ namespace FlowChatClient
                         case FlowChatConsts.NETWORK_RECV_DATA_REQUEST_USER_LIST:
                             ParseUserList(tokens[1]);
                             break;
+                        case FlowChatConsts.NETWORK_RECV_DATA_USER_DISCONNECT:
+                            RemoveUserFromList(tokens[1]);
+                            break;
                     }
                 }
                 catch
@@ -83,17 +88,26 @@ namespace FlowChatClient
 
         private void ParseUserList(string jsonStr)
         {
-            flowChatMessageListBox1.Items.Clear();
-
             FlowChatReceiveUserListDataJson recvUserListData = JsonConvert.DeserializeObject<FlowChatReceiveUserListDataJson>(jsonStr);
             foreach (var userModel in recvUserListData.UserList)
             {
-                FlowChatMessageItemModel messageItem = new FlowChatMessageItemModel();
-                messageItem.ImageUrl = userModel.Avatar;
-                messageItem.MessagerName = userModel.UserName;
-                messageItem.User = userModel;
-                flowChatMessageListBox1.AddMessageItem(messageItem);
+                if (flowChatMessageListBox1.Items.Where(o => o.MessagerName == userModel.UserName).Count() == 0)
+                {
+                    FlowChatMessageItemModel messageItem = new FlowChatMessageItemModel();
+                    messageItem.ImageUrl = userModel.Avatar;
+                    messageItem.MessagerName = userModel.UserName;
+                    messageItem.User = userModel;
+                    flowChatMessageListBox1.AddMessageItem(messageItem);
+                }
             }
+        }
+
+        private void RemoveUserFromList(string jsonStr)
+        {
+            FlowChatReceiveLoginDataJson recvUserData = JsonConvert.DeserializeObject<FlowChatReceiveLoginDataJson>(jsonStr);
+            var userModel = recvUserData.Data;
+            var messageItem = flowChatMessageListBox1.Items.Where(o => o.MessagerName == userModel.UserName).FirstOrDefault();
+            flowChatMessageListBox1.RemoveMessageItem(messageItem);
         }
 
         private void RequestUserListExcludeCurrentUserFromServer()
@@ -103,7 +117,7 @@ namespace FlowChatClient
                 var tcpClient = session.TcpClient;
                 var stream = tcpClient.GetStream();
 
-                var bytes = Encoding.UTF8.GetBytes(FlowChatConsts.NETWORK_RECV_DATA_REQUEST_USER_LIST);
+                var bytes = Encoding.UTF8.GetBytes(FlowChatConsts.NETWORK_SEND_DATA_REQUEST_USER_LIST);
                 stream.Write(bytes, 0, bytes.Length);
             });
             thread.Start();
@@ -119,6 +133,10 @@ namespace FlowChatClient
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
+            byte[] buffer = Encoding.UTF8.GetBytes(FlowChatConsts.NETWORK_SEND_DATA_DISCONNECT);
+            session.TcpClient.GetStream().Write(buffer, 0, buffer.Length);
+
+            session.End();
             Application.Exit();
         }
 

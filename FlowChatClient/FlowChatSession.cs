@@ -21,5 +21,10 @@ namespace FlowChatClient
             this.tcpClient = tcpClient;
             this.userData = userData;
         }
+
+        public void End()
+        {
+            tcpClient.Close();
+        }
     }
 }

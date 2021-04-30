@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlowChatControl.Data
+namespace FlowChatControl.NetworkData
 {
     public class FlowChatReceiveDataJson
     {
