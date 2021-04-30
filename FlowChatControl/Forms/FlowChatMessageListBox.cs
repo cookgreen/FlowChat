@@ -102,6 +102,12 @@ namespace FlowChatControl
             }
         }
 
+        public void AddMessageItem(FlowChatMessageItemModel messageItem)
+        {
+            Items.Add(messageItem);
+            Invalidate();
+        }
+
         protected override void OnMouseClick(MouseEventArgs e)
         {
             for (int i = 0; i < Items.Count; i++)

@@ -45,10 +45,6 @@ namespace FlowChatClient
             RequestUserListExcludeCurrentUserFromServer();
         }
 
-        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-        }
-
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
             while (true)
@@ -81,6 +77,10 @@ namespace FlowChatClient
             }
         }
 
+        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+        }
+
         private void ParseUserList(string jsonStr)
         {
             flowChatMessageListBox1.Items.Clear();
@@ -92,10 +92,8 @@ namespace FlowChatClient
                 messageItem.ImageUrl = userModel.Avatar;
                 messageItem.MessagerName = userModel.UserName;
                 messageItem.User = userModel;
-                flowChatMessageListBox1.Items.Add(messageItem);
+                flowChatMessageListBox1.AddMessageItem(messageItem);
             }
-
-            flowChatMessageListBox1.Invalidate();
         }
 
         private void RequestUserListExcludeCurrentUserFromServer()

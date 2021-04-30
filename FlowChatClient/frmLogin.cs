@@ -116,7 +116,7 @@ namespace FlowChatClient
             catch(Exception ex)
             {
                 arr[0] = "Failed";
-                arr[1] = ex.ToString();
+                arr[1] = ex.Message;
             }
 
             e.Result = arr;
