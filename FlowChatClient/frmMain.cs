@@ -15,9 +15,13 @@ namespace FlowChatClient
 {
     public partial class frmMain : Form
     {
-        public frmMain(FlowChatUserModel userData)
+        private FlowChatSession session;
+
+        public frmMain(FlowChatSession session)
         {
             InitializeComponent();
+
+            this.session = session;
 
             flowChatMessageListBox1.SelectedMessageItemChanged += FlowChatMessageListBox1_SelectedMessageItemChanged;
 

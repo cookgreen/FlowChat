@@ -1,7 +1,7 @@
 ﻿
 namespace FlowChatClient
 {
-    partial class frmRegisterUser
+    partial class frmRegister
     {
         /// <summary>
         /// Required designer variable.

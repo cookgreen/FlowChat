@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace FlowChatClient
 {
-    public partial class frmRegisterUser : Form
+    public partial class frmRegister : Form
     {
-        private FlowChatUserModel userData;
-        public FlowChatUserModel UserData { get { return userData; } }
+        private FlowChatSession session;
+        public FlowChatSession Session { get { return session; } }
 
-        public frmRegisterUser()
+        public frmRegister()
         {
             InitializeComponent();
         }

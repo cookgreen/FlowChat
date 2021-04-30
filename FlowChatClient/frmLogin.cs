@@ -19,17 +19,19 @@ namespace FlowChatClient
     public partial class frmLogin : Form
     {
         private frmLoadingWin loadingWin;
-        private BackgroundWorker worker;
-        private FlowChatUserModel loginedUserData;
-        public FlowChatUserModel LoginedUserData { get { return loginedUserData; } }
+        private BackgroundWorker loginWorker;
+        private TcpClient tcpClient;
+        private bool isConnected;
+        private FlowChatSession session;
+        public FlowChatSession Session { get { return session; } }
         
         public frmLogin()
         {
             InitializeComponent();
             loadingWin = new frmLoadingWin();
-            worker = new BackgroundWorker();
-            worker.DoWork += Worker_DoWork;
-            worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+            loginWorker = new BackgroundWorker();
+            loginWorker.DoWork += Worker_DoWork;
+            loginWorker.RunWorkerCompleted += Worker_RunWorkerCompleted;
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -41,6 +43,7 @@ namespace FlowChatClient
         {
             btnLogin.Enabled = true;
             btnCancel.Enabled = true;
+            loadingWin.Close();
 
             object[] arr = e.Result as object[];
             if (arr[0].ToString() == "Failed")
@@ -50,8 +53,10 @@ namespace FlowChatClient
             else
             {
                 MessageBox.Show("Success!");
+
+                DialogResult = DialogResult.OK;
+                Close();
             }
-            loadingWin.Close();
         }
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
@@ -60,21 +65,21 @@ namespace FlowChatClient
 
             try
             {
-                TcpClient tcpClient = new TcpClient(new IPEndPoint(IPAddress.Any, 0)); ;
-                tcpClient.Connect(IPAddress.Parse(txtIP.Text), int.Parse(txtPort.Text));
+                if (!isConnected)
+                {
+                    tcpClient = new TcpClient(txtIP.Text, int.Parse(txtPort.Text));
+                    isConnected = true;
+                }
 
                 FlowChatUserModel userModel = new FlowChatUserModel();
                 userModel.UserName = txtUsername.Text;
                 userModel.Password = txtPassword.Text;
 
-                FlowChatSendDataLoginJson loginJsonData = new FlowChatSendDataLoginJson();
-                loginJsonData.UserData = userModel;
+                FlowChatSendDataLoginJson sendLoginDataJson = new FlowChatSendDataLoginJson();
+                sendLoginDataJson.Type = "Login";
+                sendLoginDataJson.UserData = userModel;
 
-                FlowChatSendDataJson sendDataJson = new FlowChatSendDataJson();
-                sendDataJson.Type = "Login";
-                sendDataJson.Data = loginJsonData;
-
-                string jsonStr = sendDataJson.ToJSON(); 
+                string jsonStr = sendLoginDataJson.ToJSON(); 
                 
                 NetworkStream stream = tcpClient.GetStream();
                 var buffer = Encoding.UTF8.GetBytes(jsonStr);
@@ -90,11 +95,15 @@ namespace FlowChatClient
                     newBuffer[i] = buffer[i];
                 }
                 jsonStr = Encoding.UTF8.GetString(newBuffer);
+                
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
-                FlowChatReceiveDataJson recvData = serializer.Deserialize(jsonStr, typeof(FlowChatReceiveDataJson)) as FlowChatReceiveDataJson;
-                if (recvData.Status == 1)
+                
+                FlowChatReceiveDataLoginJson recvLoginData = serializer.Deserialize(jsonStr, typeof(FlowChatReceiveDataLoginJson)) as FlowChatReceiveDataLoginJson;
+                if (recvLoginData.Status == 1)
                 {
-                    loginedUserData = ((FlowChatReceiveDataLoginJson)recvData.Data).UserData;
+                    var useData = recvLoginData.UserData;
+                    session = new FlowChatSession(tcpClient, useData);
+
                     arr[0] = "Success";
                     arr[1] = null;
                 }
@@ -149,7 +158,7 @@ namespace FlowChatClient
             loadingWin.Show();
             loadingWin.BringToFront();
 
-            worker.RunWorkerAsync();
+            loginWorker.RunWorkerAsync();
         }
     }
 }

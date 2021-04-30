@@ -27,7 +27,10 @@ namespace FlowChatServer
                 user.Uid = int.Parse(reader["id"].ToString());
                 user.UserName = reader["Username"].ToString();
                 user.Password = reader["Password"].ToString();
+                count++;
             }
+
+            reader.Close();
 
             return count > 0;
         }

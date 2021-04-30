@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace FlowChatControl.Model
 {
-    public class FlowChatSendDataJson
-    {
-        public string Type { get; set; }
-        public object Data { get; set; }
-    }
-
     public class FlowChatSendDataLoginJson
     {
+        public string Type { get; set; }
         public FlowChatUserModel UserData { get; set; }
     }
 }

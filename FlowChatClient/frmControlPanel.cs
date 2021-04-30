@@ -23,8 +23,8 @@ namespace FlowChatClient
             frmLogin loginWin = new frmLogin();
             if (loginWin.ShowDialog() == DialogResult.OK)
             {
-                var userData = loginWin.LoginedUserData;
-                frmMain mainWindow = new frmMain(userData);
+                var session = loginWin.Session;
+                frmMain mainWindow = new frmMain(session);
                 mainWindow.Show();
             }
             else
@@ -36,12 +36,12 @@ namespace FlowChatClient
         private void btnRegister_Click(object sender, EventArgs e)
         {
             Hide();
-            frmRegisterUser registerWin = new frmRegisterUser();
+            frmRegister registerWin = new frmRegister();
             if (registerWin.ShowDialog() == DialogResult.OK)
             {
-                var userData = registerWin.UserData;
-                frmMain mainWindow = new frmMain(userData);
-                mainWindow.Show();
+                //var userData = registerWin.UserData;
+                //frmMain mainWindow = new frmMain(userData);
+                //mainWindow.Show();
             }
             else
             {

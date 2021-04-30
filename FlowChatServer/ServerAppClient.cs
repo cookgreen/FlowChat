@@ -52,10 +52,9 @@ namespace FlowChatServer
                     string str = Encoding.UTF8.GetString(newBuffer);
 
                     JavaScriptSerializer serializer = new JavaScriptSerializer();
-                    FlowChatSendDataJson sendData = serializer.Deserialize(str, typeof(FlowChatSendDataJson)) as FlowChatSendDataJson;
-                    if (sendData.Type == "Login")
+                    FlowChatSendDataLoginJson sendLoginData = serializer.Deserialize(str, typeof(FlowChatSendDataLoginJson)) as FlowChatSendDataLoginJson;
+                    if (sendLoginData.Type == "Login")
                     {
-                        FlowChatSendDataLoginJson sendLoginData = sendData.Data as FlowChatSendDataLoginJson;
                         FlowChatUserModel loginUserData = sendLoginData.UserData;
 
                         Console.WriteLine("Client " + tcpClient.Client.RemoteEndPoint.ToString() + " loggin to the Server...");
@@ -64,13 +63,10 @@ namespace FlowChatServer
                         {
                             FlowChatReceiveDataLoginJson recvLoginData = new FlowChatReceiveDataLoginJson();
                             recvLoginData.UserData = loginUserData;
+                            recvLoginData.Type = "Login";
+                            recvLoginData.Status = 1;
 
-                            FlowChatReceiveDataJson recvData = new FlowChatReceiveDataJson();
-                            recvData.Type = "Login";
-                            recvData.Status = 1;
-                            recvData.Data = recvLoginData;
-
-                            var sendBuffer = Encoding.UTF8.GetBytes(recvData.ToJSON());
+                            var sendBuffer = Encoding.UTF8.GetBytes(recvLoginData.ToJSON());
                             stream.Write(sendBuffer, 0, sendBuffer.Length);
 
                             Console.WriteLine("Client " + tcpClient.Client.RemoteEndPoint.ToString() + " Login Success!");
@@ -79,13 +75,11 @@ namespace FlowChatServer
                         {
                             FlowChatReceiveDataLoginJson recvLoginData = new FlowChatReceiveDataLoginJson();
                             recvLoginData.UserData = null;
+                            recvLoginData.Type = "Login";
+                            recvLoginData.Status = 0;
+                            recvLoginData.Message = "Username or Password is incorrect";
 
-                            FlowChatReceiveDataJson recvData = new FlowChatReceiveDataJson();
-                            recvData.Type = "Login";
-                            recvData.Status = 0;
-                            recvData.Data = recvLoginData;
-
-                            tcpClient.Client.Send(Encoding.UTF8.GetBytes(recvData.ToJSON()));
+                            tcpClient.Client.Send(Encoding.UTF8.GetBytes(recvLoginData.ToJSON()));
 
                             Console.WriteLine("Client " + tcpClient.Client.RemoteEndPoint.ToString() + " Login Failed!");
                         }

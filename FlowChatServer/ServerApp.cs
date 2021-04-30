@@ -26,7 +26,9 @@ namespace FlowChatServer
         {
             listener.Start();
 
-            Console.WriteLine("FlowChat Server v1.0");
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("--- FlowChat Server v1.0 ---");
+            Console.WriteLine("----------------------------");
 
             while (!isExit)
             {
@@ -37,7 +39,7 @@ namespace FlowChatServer
                 ServerAppClient serverAppClient = new ServerAppClient(tcpClient);
                 serverAppClient.Exited += () =>
                 {
-                    Console.WriteLine("Client " + serverAppClient.TcpClient.Client.RemoteEndPoint.ToString() + " connected!");
+                    Console.WriteLine("Client " + serverAppClient.TcpClient.Client.RemoteEndPoint.ToString() + " Exited!");
                     currentConnectedClients.Remove(serverAppClient);
                 };
                 currentConnectedClients.Add(serverAppClient);
