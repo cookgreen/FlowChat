@@ -73,6 +73,9 @@ namespace FlowChatClient
                         case FlowChatConsts.NETWORK_RECV_DATA_USER_DISCONNECT:
                             RemoveUserFromList(tokens[1]);
                             break;
+                        case FlowChatConsts.NETWORK_RECV_DATA_USER_MESSAGE:
+                            NewMessageArried(tokens[1]);
+                            break;
                     }
                 }
                 catch
@@ -121,6 +124,15 @@ namespace FlowChatClient
                 stream.Write(bytes, 0, bytes.Length);
             });
             thread.Start();
+        }
+
+        private void NewMessageArried(string jsonStr)
+        {
+            FlowChatSendMessageData sendMessageData = JsonConvert.DeserializeObject<FlowChatSendMessageData>(jsonStr);
+            if (flowChatMessageListBox1.CurrentSelectedItem.MessagerName == sendMessageData.SenderUserName)
+            {
+                ((FlowChatMessageContentSendCtrl)splitContainer1.Panel2.Controls[0]).AddMessageItem(sendMessageData.Content, false);
+            }
         }
 
         private void FlowChatMessageListBox1_SelectedMessageItemChanged(object arg1, FlowChatMessageItemModel arg2)

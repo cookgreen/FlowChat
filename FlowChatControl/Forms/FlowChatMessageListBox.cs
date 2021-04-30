@@ -15,6 +15,7 @@ namespace FlowChatControl
         private FlowChatMessageItemModel lastClickItem;
         private List<FlowChatMessageItemModel> items;
         public List<FlowChatMessageItemModel> Items { get { return items; } }
+        public FlowChatMessageItemModel CurrentSelectedItem { get { return lastClickItem; } }
 
         public event Action<object, FlowChatMessageItemModel> SelectedMessageItemChanged;
 

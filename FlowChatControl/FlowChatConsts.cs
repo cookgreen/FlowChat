@@ -18,5 +18,7 @@ namespace FlowChatControl
         public const string NETWORK_RECV_DATA_LOGIN_REGISTER_PREFIX = "LOGIN_REGISTER_RECV_DATA";
         public const string NETWORK_RECV_DATA_REQUEST_USER_LIST = "REQUEST_USER_LIST_RECV_DATA";
         public const string NETWORK_RECV_DATA_USER_DISCONNECT = "USER_DISCONNECT_RECV_DATA";
+        public const string NETWORK_RECV_DATA_USER_MESSAGE = "MESSAGE_RECV_DATA";
+        public const string NETWORK_RECV_DATA_ERROR = "ERROR_RECV_DATA";
     }
 }

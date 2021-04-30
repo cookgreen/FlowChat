@@ -16,5 +16,13 @@ namespace FlowChatControl.Forms
         {
             InitializeComponent();
         }
+
+        public void AddMessageItem(string content, bool isMe)
+        {
+            FlowChatMessageContentItemModel item = new FlowChatMessageContentItemModel();
+            item.MessageText = content;
+            item.IsMe = isMe;
+            flowChatMessageContentListBox1.AddNewMessage(item);
+        }
     }
 }

@@ -76,6 +76,7 @@
     <Compile Include="NetworkData\FlowChatReceiveLoginDataJson.cs" />
     <Compile Include="NetworkData\FlowChatSendLoginDataJson.cs" />
     <Compile Include="Model\FlowChatUserModel.cs" />
+    <Compile Include="NetworkData\FlowChatSendMessageData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\FlowChatGroupListBox.cs">
       <SubType>Component</SubType>

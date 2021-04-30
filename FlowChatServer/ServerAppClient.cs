@@ -65,6 +65,7 @@ namespace FlowChatServer
                             ParseLoginDataAndReturn(tokens[1], stream);
                             break;
                         case FlowChatConsts.NETWORK_SEND_DATA_MESSAGE:
+                            ParseMessageData(tokens[1], stream);
                             break;
                         case FlowChatConsts.NETWORK_SEND_DATA_REQUEST_USER_LIST:
                             ReturnUserList(stream);
@@ -79,6 +80,21 @@ namespace FlowChatServer
                     Exited?.Invoke();
                     break;
                 }
+            }
+        }
+
+        private void ParseMessageData(string jsonStr, NetworkStream stream)
+        {
+            FlowChatSendMessageData sendMessageData = JsonConvert.DeserializeObject<FlowChatSendMessageData>(jsonStr);
+
+            var findedClient = serverApp.ConnectedClients.Where(o => o.isLogined && o.loginedUserData.UserName == sendMessageData.ReceiveUserName).FirstOrDefault();
+            if (findedClient != null)
+            {
+                findedClient.SendMessage(FlowChatConsts.NETWORK_RECV_DATA_USER_MESSAGE + "|" + jsonStr, stream);
+            }
+            else
+            {
+                SendMessage(FlowChatConsts.NETWORK_RECV_DATA_ERROR + "|Send Message Error, User can not be reached!", stream);
             }
         }
 
